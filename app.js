@@ -1,6 +1,10 @@
 function crypto(password) {
   const passArr = password.split("");
-  return passArr.reverse().join("");
+  return passArr
+    .slice(passArr.length / 2)
+    .reverse()
+    .concat(passArr.slice(0, passArr.length / 2).reverse())
+    .join("");
 }
 
 function check(cryptoPassword, password) {
